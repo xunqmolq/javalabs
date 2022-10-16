@@ -27,14 +27,14 @@ public class StringCalculator {
                 if (delimiter.endsWith("]") && delimiter.indexOf("[") == 0) {
                     Pattern pattern = Pattern.compile("\\[(.*?)\\]");
                     Matcher matcher = pattern.matcher(delimiter);
-
                     while (matcher.find()) {
                         for (int i = 0; i <= matcher.groupCount(); i++) {
                             String m = matcher.group(i);
-                            numbers = numbers.replaceAll(Pattern.quote(m), ",");
+                            numbers = numbers.replaceAll(Pattern.quote(m), "  ");
                         }
 
                     }
+                    numbers = numbers.replaceAll("[  ]{2,}",",");
                     numbers = numbers.replaceAll(Pattern.quote(delimiterDefault), ",");
                 }
             }
